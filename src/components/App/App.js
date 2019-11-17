@@ -8,12 +8,12 @@ import ErrorBoundry from "../ErrorBoundry";
 import WithBookStoreService from "../HOK";
 import { Link, Route, Switch } from "react-router-dom";
 import { HomePage, CartPage } from "../Pages";
+import Header from "../Header";
 
 const App = ({ getData }) => {
   return (
     <React.Fragment>
-      <Link to="/">HomePage</Link> <br />
-      <Link to="/cart">CartPage</Link>
+      <Header />
       <Switch>
         <Route path="/" exact component={HomePage}></Route>
         <Route path="/cart" component={CartPage}></Route>

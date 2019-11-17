@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-const BookListItem = ({book}) => {
-    const { title, author} = book;
+const BookListItem = ({books}) => {
+    const { title, author} = books;
     return (
       <React.Fragment>
         <span>{title}</span>

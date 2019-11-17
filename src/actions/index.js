@@ -1,2 +1,2 @@
-import { BOOKS_LOADED } from "./actions";
-export { BOOKS_LOADED };
+import { BOOKS_LOADED, BOOKS_ERROR, BOOKS_REQUSTED, FETCH_BOOKS } from "./actions";
+export { BOOKS_LOADED, BOOKS_ERROR, BOOKS_REQUSTED, FETCH_BOOKS };

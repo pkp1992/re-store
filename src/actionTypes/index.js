@@ -1,2 +1,2 @@
-import {BOOKS_LOADED} from './types'
-export { BOOKS_LOADED };
+import { BOOKS_LOADED, BOOKS_REQUSTED, BOOKS_ERROR } from "./types";
+export { BOOKS_LOADED, BOOKS_REQUSTED, BOOKS_ERROR };
