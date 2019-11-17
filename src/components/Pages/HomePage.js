@@ -1,9 +1,15 @@
-import React from "react";
+import React, {Fragment} from "react";
 import BookList from "../BookList";
+import ShoppingCartTable from "../ShoppingCartTable";
 
 
 const HomePage = ({getData}) => {
-    return <BookList />;
+    return (
+      <Fragment>
+        <BookList />
+        <ShoppingCartTable />
+      </Fragment>
+    );
 };
 
 export default HomePage;

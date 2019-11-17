@@ -12,14 +12,14 @@ import Header from "../Header";
 
 const App = ({ getData }) => {
   return (
-    <React.Fragment>
-      <Header />
+    <main role="main" className="container">
+      <Header numItem={7} total={250}/>
       <Switch>
         <Route path="/" exact component={HomePage}></Route>
         <Route path="/cart" component={CartPage}></Route>
         <Route render={() => <h2>404 Page not found!</h2>}></Route>
       </Switch>
-    </React.Fragment>
+    </main>
   );
 };
 

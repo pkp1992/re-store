@@ -5,7 +5,7 @@ import BookListItem from "../BookListItem";
 import ErrorIndicator from "../ErrorIndicator";
 import Spinner from "../Spinner";
 // import * as actions from "../../actions";
-import { FETCH_BOOKS } from "../../actions";
+import { FETCH_BOOKS, BOOK_ADDED_TO_CART } from "../../actions";
 import { compose } from "../../utils";
 import "./BookList.css";
 
@@ -16,24 +16,24 @@ class BooksContainer extends Component {
   }
 
   render() {
-    const { books, loading, error } = this.props;
+    const { books, loading, error, onAddedToCart } = this.props;
     if (loading) {
       return <Spinner />;
     }
     if (error) {
       return <ErrorIndicator />;
     }
-    return <BooksList books={books} />;
+    return <BooksList books={books} onAddedToCart={onAddedToCart} />;
   }
 }
 
-const BooksList = ({ books }) => {
+const BooksList = ({ books, onAddedToCart }) => {
   return (
-    <ul>
+    <ul className="book-list">
       {books.map(book => {
         return (
           <li key={book.id}>
-            <BookListItem books={book} />
+            <BookListItem books={book} onAddedToCart={() => onAddedToCart(book.id)} />
           </li>
         );
       })}
@@ -41,14 +41,15 @@ const BooksList = ({ books }) => {
   );
 };
 
-const mapStateToProps = ({ books, loading, error }) => ({
+const mapStateToProps = ({ books, loading, error,}) => ({
   books,
   loading,
   error
 });
 
 const mapDispatchToProps = (dispatch, { getData }) => ({
-  FETCH_BOOKS: FETCH_BOOKS(dispatch, getData)
+  FETCH_BOOKS: FETCH_BOOKS(dispatch, getData),
+  onAddedToCart: (id) => dispatch(BOOK_ADDED_TO_CART(id))
 });
 export default compose(
   WithBookStoreService(x => x.getBook),

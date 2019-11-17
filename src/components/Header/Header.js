@@ -2,13 +2,20 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import './Header.css'
 
-export default class Header extends Component {
-  render() {
+ const Header = ({numItem, total}) => {
+
     return (
-      <nav className="nav">
-        <Link to="/">HomePage</Link>
-        <Link to="/cart">CartPage</Link>
-      </nav>
+      <header className="shop-header row">
+        <Link className="logo text-dark" to="/">
+          ReStore
+        </Link>
+        <Link to="/cart" className="shopping-cart">
+          <i className="cart-icon fa fa-shopping-cart" />
+          {numItem} items (${total})
+        </Link>
+      </header>
     );
   }
-}
+
+
+export default Header
